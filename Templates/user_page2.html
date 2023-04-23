@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>GYMrent Użytkownik</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../static/style.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    </head>
+    <body>
+
+        <div class="rectangle">
+            <div id="logo">GYMrent.pl</div>
+            <form id="city_form" action="{{ url_for('home') }}" method="GET">
+                <button type="submit" class="btn btn-dark form-control-lg" style="margin-top: 40px; margin-right: 10%; float: right;">Wyloguj</button>
+            </form>
+        </div>
+        
+        <div>
+            <form class="row g-3" action="{{ url_for('add') }}" method="POST" style="margin-top: 50px; margin-left: 10%; margin-right: 10%;">
+                <div>
+                    <input type="text" class="form-control" id="inputCity" name="inputEmail" value={{email}} hidden> 
+                </div>
+                <div class="col-md-6">
+                    <label for="inputCity" class="form-label">Miasto</label>
+                    <input type="text" class="form-control" id="inputCity" name="inputCity" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="inputAdres" class="form-label">Adres</label>
+                    <input type="text" class="form-control" id="inputAdres" name="inputAdres" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="inputPrice" class="form-label">Cena</label>
+                    <input type="text" class="form-control" id="inputPrice" name="inputPrice" placeholder="zł/h" required>
+                </div>
+                <div class="col-md-9">
+                    <label for="inputOpis" class="form-label">Opis</label>
+                    <input type="text" class="form-control" id="inputOpis">
+                </div>
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="gridCheck" required>
+                        <label class="form-check-label" for="gridCheck">
+                        Zaakceptuj, jeśli chcesz dodać ofertę
+                        </label>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-success">Dodaj</button>
+                </div>
+            </form>
+        </div>
+
+        <form action="{{ url_for('add') }}" method="post">
+        <div style="float: left; margin-left: 10%;">
+            <div style="margin-left: 10%px;">
+                <table class="table">
+                    <tbody>
+                        {% for wynik in wyniki %}
+                            <tr>
+                                <td style="width: 200px;">
+                                    <p style="float: left;">Miasto: {{ wynik.city }}</p>
+                                </td>
+                                <td style="width: 300px;">
+                                    <p>ul. {{ wynik.street }}</p> 
+                                </td>
+                                <td style="width: 200px;">
+                                    <p style="float: right;">Cena: {{ wynik.price }} zł/h</p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    </body>
+</html>

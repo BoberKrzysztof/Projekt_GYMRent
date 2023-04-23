@@ -1,0 +1,37 @@
+body {
+	font-size: 36px;
+	height: 100vh;
+	margin: 0;
+}
+
+.rectangle {
+	width: auto;
+	height: 120px;
+	background-color: #04458f;
+}
+
+.search {
+	width: 250px;
+	height: 400px;
+	margin-top: 25px;
+	margin-left: 10%;
+	background-color: rgb(244, 184, 87);
+}
+
+.search_label {
+	font-size: 25px;
+	font-weight: bold;
+	padding: 15px;
+}
+
+#logo {
+	font-size: 60px;
+	float: left;
+	margin-top: 15px;
+	margin-left: 10%;
+	color: white;
+}
+
+td > p {
+	margin-top: 25px;
+}
